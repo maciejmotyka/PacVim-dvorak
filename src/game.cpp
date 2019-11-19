@@ -68,38 +68,38 @@ bool isFullDigits(string &str) {
 
 
 void doKeystroke(avatar& unit) {
-	if(INPUT== "q") { 
+	if(INPUT== "'") { 
 		endwin();
 		exit(0);
 	}
-	else if(INPUT == "h") {
+	else if(INPUT == "d") {
 		unit.moveLeft();
 	}
-	else if(INPUT == "j") {
+	else if(INPUT == "h") {
 		unit.moveDown();
 	}
-	else if(INPUT == "k") {
+	else if(INPUT == "t") {
 		unit.moveUp(); 
 	}
-	else if(INPUT == "l") {
+	else if(INPUT == "n") {
 		unit.moveRight();
 	}
-	else if(INPUT == "w") {
+	else if(INPUT == ",") {
 		unit.parseWordForward(true);
 	}
-	else if(INPUT == "W") {
+	else if(INPUT == "<") {
 		unit.parseWordForward(false);	
 	}
-	else if(INPUT == "b") {
+	else if(INPUT == "x") {
 		unit.parseWordBackward(true);
 	}
-	else if(INPUT == "B") {
+	else if(INPUT == "X") {
 		unit.parseWordBackward(false);
 	}
-	else if(INPUT == "E") {
+	else if(INPUT == ">") {
 		unit.parseWordEnd(false);
 	}
-	else if(INPUT == "e") {
+	else if(INPUT == ".") {
 		unit.parseWordEnd(true);
 	}
 	else if(INPUT == "$") { 
@@ -108,7 +108,7 @@ void doKeystroke(avatar& unit) {
 	else if(INPUT == "0") {
 		unit.parseToBeginning();
 	}
-	else if(INPUT == "gg" || INPUT == "1G") {
+	else if(INPUT == "ii" || INPUT == "1I") {
 		int i = 0;
 		while(!isInside(unit.getX(), BOTTOM+i, "omni")) {
 			i++;
@@ -118,7 +118,7 @@ void doKeystroke(avatar& unit) {
 		unit.setPos(unit.getX(), BOTTOM+i); 
 		unit.parseToBeginning();
 	}
-	else if(INPUT == "G") { 
+	else if(INPUT == "I") { 
 		int i = 0;
 		while(!isInside(unit.getX(), TOP-i, "omni")) {
 			i++;
@@ -155,12 +155,12 @@ void onKeystroke(avatar& unit, char key) {
 
 	// If INPUT != empty, and the user inputs a number, INPUT
 	// should reset.. EG: 3g3 dd = 1 dd, not 3 dd
-	if(key == 'g') { 
+	if(key == 'i') { 
 		// have 'g' (only) in buffer, or buffer is empty
-		if(INPUT.empty() || (INPUT.size() == 1 && INPUT[0] == 'g')) {	
+		if(INPUT.empty() || (INPUT.size() == 1 && INPUT[0] == 'i')) {	
 			
 			INPUT += key;
-			if(INPUT == "gg") {
+			if(INPUT == "ii") {
 				doKeystroke(unit);
 				INPUT = "";
 			}
@@ -178,15 +178,15 @@ void onKeystroke(avatar& unit, char key) {
 		int num = std::stoi(INPUT, nullptr, 0); // extracts 33 from 33dd for example
 		
 		// special ... #G. Move to the line number #
-		if(key == 'G') {
+		if(key == 'I') {
 			// go to line num
 			if(num == 1) {
-				INPUT = "1G";
+				INPUT = "1I";
 				doKeystroke(unit);
 			}
 			// don't go to a line that is offscreen or off the map
 			else if(num > TOP) {
-				INPUT = "G";
+				INPUT = "I";
 				doKeystroke(unit);
 			}
 			else {
