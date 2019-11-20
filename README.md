@@ -23,8 +23,6 @@ sudo docker run -it maciekmotyka/pacvim-dvorak [LEVEL_NUMBER] [MODE]
 3. make install
 ```
 
-=======
->>>>>>> 8402d1175c5392a7935cf5df11a303aae25a28e4
 # How to play
 
 See the README at the original repo: https://github.com/jmoon018/PacVim
