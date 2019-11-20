@@ -7,23 +7,13 @@ preserved.
 Example: pressing key labeled "j" will move the cursor down, and not to the
 left.
 
-# How to install
-<<<<<<< HEAD
-=======
-
-```
-1. git clone https://github.com/maciejmotyka/PacVim-dvorak.git
-2. cd PacVim
-3. make install
-```
->>>>>>> 8402d1175c5392a7935cf5df11a303aae25a28e4
+# Install
 
 ## Using Docker
 
 ```
 sudo docker run -it maciekmotyka/pacvim-dvorak [LEVEL_NUMBER] [MODE]
 ```
-<<<<<<< HEAD
 
 ## Building from source
 
